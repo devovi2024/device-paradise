@@ -1,0 +1,42 @@
+.category-sidebar {
+    width: 220px;
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-item {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 1rem;
+    color: #34495e;
+  }
+  
+  .category-item:hover {
+    background-color: #e0f2ff;
+    color: #1e88e5;
+  }
+  
+  .category-item.selected {
+    background-color: #1e88e5;
+    color: white;
+    font-weight: bold;
+  }
+  

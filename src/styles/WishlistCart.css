@@ -1,0 +1,52 @@
+.item-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .item-card img {
+    width: 100px;
+    border-radius: 10px;
+  }
+  
+  .item-info h3 {
+    margin: 0;
+  }
+  
+  .item-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .item-actions button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .item-actions button:last-child {
+    background-color: #f44336;
+  }
+  
+  .cart-summary {
+    margin-top: 20px;
+  }
+  
+  .checkout-btn {
+    background: green;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+  }
+  

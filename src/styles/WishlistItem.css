@@ -1,0 +1,33 @@
+.wishlist-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .wishlist-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .wishlist-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #32cd32;
+  }
+  
+  .wishlist-item p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .wishlist-item .price {
+    color: #32cd32;
+    font-weight: bold;
+  }
+  
