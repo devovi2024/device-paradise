@@ -70,3 +70,31 @@
 .back-btn:hover {
   background-color: #bdbdbd;
 }
+
+
+.product-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ff9900;
+}
+
+.wishlist-button, .cart-button {
+  margin-top: 20px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

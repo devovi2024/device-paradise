@@ -12,6 +12,14 @@ const Wishlist = () => {
     setWishlistItems(items);
   }, []);
 
+  const handleDeleteItem = (productId) => {
+    const updatedWishlist = wishlistItems.filter(item => item.product_id !== productId);
+    setWishlistItems(updatedWishlist);
+    const savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const newWishlist = savedWishlist.filter(id => id !== productId);
+    localStorage.setItem("wishlist", JSON.stringify(newWishlist));
+  };
+
   return (
     <div className="wishlist-page">
       <h2 className="wishlist-title">My Wishlist</h2>
@@ -20,7 +28,9 @@ const Wishlist = () => {
       ) : (
         <div className="wishlist-container">
           {wishlistItems.map((item) => (
-            <WishlistItem key={item.product_id} product={item} />
+            <WishlistItem key={item.product_id} product={item}>
+              <button onClick={() => handleDeleteItem(item.product_id)}>Delete</button>
+            </WishlistItem>
           ))}
         </div>
       )}

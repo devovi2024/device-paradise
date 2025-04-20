@@ -1,14 +1,12 @@
 import React from "react";
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, children }) => {
   return (
     <div className="cart-item">
-      <img src={product.product_image} alt={product.product_title} className="cart-item-img" />
-      <div className="cart-item-info">
-        <h3>{product.product_title}</h3>
-        <p>Price: ${product.price}</p>
-        <p>{product.description}</p>
-      </div>
+      <h3>{product.name}</h3>
+      <p>{product.description}</p>
+      <p>Price: ${product.price}</p>
+      {children} 
     </div>
   );
 };

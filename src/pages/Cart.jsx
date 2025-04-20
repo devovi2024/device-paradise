@@ -12,6 +12,14 @@ const Cart = () => {
     setCartItems(items);
   }, []);
 
+  const handleDeleteItem = (productId) => {
+    const updatedCart = cartItems.filter(item => item.product_id !== productId);
+    setCartItems(updatedCart);
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const newCart = savedCart.filter(id => id !== productId);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  };
+
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
   };
@@ -25,7 +33,9 @@ const Cart = () => {
         <>
           <div className="cart-container">
             {cartItems.map((item) => (
-              <CartItem key={item.product_id} product={item} />
+              <CartItem key={item.product_id} product={item}>
+                <button onClick={() => handleDeleteItem(item.product_id)}>Delete</button>
+              </CartItem>
             ))}
           </div>
           <div className="cart-summary">
