@@ -18,7 +18,6 @@ const GadgetCard = ({ product, onClick }) => {
   );
 };
 
-// Prop types for better developer experience
 GadgetCard.propTypes = {
   product: PropTypes.shape({
     product_id: PropTypes.string.isRequired,

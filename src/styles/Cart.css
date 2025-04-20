@@ -1,70 +1,40 @@
 .cart-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .cart-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .empty-message {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  .cart-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .cart-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-item-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .cart-item-info {
-    padding: 15px;
-  }
-  
-  .cart-item-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .cart-item-info p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-summary {
+  text-align: right;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
   .cart-summary {
     text-align: center;
-    font-size: 1.2rem;
-    margin-top: 20px;
   }
-  
-  .cart-summary p {
-    font-weight: bold;
-    color: #000;
-  }
-  
+}

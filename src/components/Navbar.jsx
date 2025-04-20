@@ -1,53 +1,48 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const [isOpen, setIsOpen] = useState(false); 
-
-  const navLinkStyle = ({ isActive }) =>
-    isActive ? 'text-blue-600 font-bold' : 'text-gray-700';
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className={isHome ? 'bg-transparent' : 'bg-white shadow-md'}>
-      <div className='max-w-6xl mx-auto px-4 py-3 flex justify-between items-center'>
-        {/* Logo or Brand Name */}
-        <h1 className='text-xl font-bold text-blue-700'>GadgetHeaven</h1>
+    <div role="navigation" className={isHome ? 'nav-wrapper transparent' : 'nav-wrapper white-bg'}>
+      <div className="navbar-container">
+        {/* Logo */}
+        <h1 className="logo">GadgetHeaven</h1>
 
-        {/* Mobile Menu Button */}
-        <button
-          className='lg:hidden text-blue-700'
-          onClick={toggleMenu}
-        >
+        {/* Mobile Menu Toggle Button */}
+        <button className="menu-toggle" onClick={toggleMenu}>
           {isOpen ? '✖' : '☰'}
         </button>
 
         {/* Navigation Links */}
-        <nav className={`space-x-4 lg:flex ${isOpen ? 'block' : 'hidden'}`}>
-          <NavLink to='/' className={navLinkStyle}>
+        <nav className={`nav-links ${isOpen ? 'open' : ''}`}>
+          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Home
           </NavLink>
-          <NavLink to='/dashboard' className={navLinkStyle}>
+          <NavLink to="/dashboard" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Dashboard
           </NavLink>
-          <NavLink to='/stats' className={navLinkStyle}>
+          <NavLink to="/stats" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Stats
           </NavLink>
-          <NavLink to='/extra' className={navLinkStyle}>
+          <NavLink to="/extra" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Extra
           </NavLink>
-          <NavLink to='/cart' className={navLinkStyle}>
+          <NavLink to="/cart" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Cart
           </NavLink>
-          <NavLink to='/wishlist' className={navLinkStyle}>
+          <NavLink to="/wishlist" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Wishlist
           </NavLink>
         </nav>
       </div>
-    </header>
+    </div>
   );
 };
 
