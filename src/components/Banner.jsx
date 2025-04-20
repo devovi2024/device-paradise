@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Banner.css";
+import bannerImage from "../assets/banner.jpg";
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -10,13 +11,27 @@ const Banner = () => {
   };
 
   return (
-    <section className="banner-section">
+    <section className="banner-section ">
+
       <div className="banner-content">
-        <h1 className="banner-title">Discover the Future of Gadgets</h1>
-        <p className="banner-subtitle">The latest tech right at your fingertips.</p>
+        <h1 className="banner-title">
+          Upgrade Your Tech Accessorize with <br /> Gadget Heaven Accessories
+        </h1>
+        <p className="banner-subtitle">
+          Explore the latest gadgets that will take your experience to the next level.
+          From smart devices to the coolest accessories, we have it all!
+        </p>
         <button className="banner-button" onClick={handleNavigate}>
-          Go to Dashboard
+          Shop Now
         </button>
+      </div>
+
+      <div className="banner-image-container">
+        <img
+          src="../assets/banner.jpg" // Example image URL (use yours)
+          alt="VR Headset"
+          className="banner-image"
+        />
       </div>
     </section>
   );

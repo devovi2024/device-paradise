@@ -8,11 +8,11 @@ const GadgetCard = ({ product, onClick }) => {
 
   return (
     <div className="gadget-card" onClick={onClick}>
-      <img src={product_image} alt={product_title} className="gadget-image" />
+      <div className="gadget-image" />
       <h3 className="gadget-title">{product_title}</h3>
-      <p className="gadget-price">${price}</p>
+      <p className="gadget-price">Price: {price}</p>
       <Link to={`/product/${product_id}`} className="gadget-button">
-        Details
+        View Details
       </Link>
     </div>
   );
@@ -21,9 +21,9 @@ const GadgetCard = ({ product, onClick }) => {
 GadgetCard.propTypes = {
   product: PropTypes.shape({
     product_id: PropTypes.string.isRequired,
-    product_image: PropTypes.string.isRequired,
+    product_image: PropTypes.string, // Placeholder, replace with real image
     product_title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
   }).isRequired,
   onClick: PropTypes.func,
 };

@@ -1,54 +1,46 @@
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import CartItem from "../components/CartItem";
+import PaymentModal from "../components/PaymentModal";
 import gadgetsData from "../data/gadgets.json";
 import "../styles/Cart.css";
 
+
+
+
+
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
-  // Load items from localStorage on first load
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const items = gadgetsData.filter((item) =>
-      savedCart.includes(item.product_id)
-    );
+    const items = gadgetsData.filter((item) => savedCart.includes(item.product_id));
     setCartItems(items);
   }, []);
 
-  // Calculate total price
   const calculateTotalPrice = () => {
-    return cartItems
-      .reduce((total, item) => total + item.price, 0)
-      .toFixed(2);
+    return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
   };
 
-  // Handle adding an item to the cart
   const handleAddItemToCart = (productId) => {
     const newItem = gadgetsData.find((item) => item.product_id === productId);
     const totalPrice = parseFloat(calculateTotalPrice());
 
-    // Check if adding the new item exceeds the $1000 limit
     if (totalPrice + newItem.price > 1000) {
       toast.error("Cannot add item. Cart total exceeds $1000!");
       return;
     }
 
-    // Add item to state and localStorage
     setCartItems((prev) => {
       const updatedCart = [...prev, newItem];
-      localStorage.setItem("cart", JSON.stringify(updatedCart.map(item => item.product_id)));
+      localStorage.setItem("cart", JSON.stringify(updatedCart.map((item) => item.product_id)));
       return updatedCart;
     });
 
     toast.success(`${newItem.name} added to the cart!`);
   };
 
-  // Handle removing an item from the cart
   const handleDeleteItem = (productId) => {
     const updatedCart = cartItems.filter((item) => item.product_id !== productId);
     setCartItems(updatedCart);
@@ -58,6 +50,16 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(newCart));
 
     toast.info("Item removed from cart!");
+  };
+
+  const sortByPrice = () => {
+    const sorted = [...cartItems].sort((a, b) => a.price - b.price);
+    setCartItems(sorted);
+  };
+
+  const sortByPurchase = () => {
+    const sorted = [...cartItems].sort((a, b) => b.purchase_count - a.purchase_count);
+    setCartItems(sorted);
   };
 
   return (
@@ -71,20 +73,25 @@ const Cart = () => {
           <div className="cart-container">
             {cartItems.map((item) => (
               <CartItem key={item.product_id} product={item}>
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDeleteItem(item.product_id)}
-                >
-                  ❌
-                </button>
+                <button className="delete-btn" onClick={() => handleDeleteItem(item.product_id)}>❌</button>
               </CartItem>
             ))}
           </div>
 
           <div className="cart-summary">
             <p>Total Price: ${calculateTotalPrice()}</p>
+            <button onClick={() => setShowModal(true)} className="checkout-btn">Checkout</button>
           </div>
         </>
+      )}
+
+      {showModal && (
+        <PaymentModal
+          total={calculateTotalPrice()}
+          onClose={() => setShowModal(false)}
+          onSortPrice={sortByPrice}
+          onSortPurchase={sortByPurchase}
+        />
       )}
     </div>
   );

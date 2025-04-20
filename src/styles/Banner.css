@@ -1,66 +1,101 @@
-/* Banner.css */
-
 .banner-section {
-    background: linear-gradient(to right, #3b82f6, #06b6d4);
-    color: white;
-    padding: 4rem 2rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh;
-  }
+  width: 100%;
+  min-height: 80vh;
+  background: url('../assets/banner.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #1d3557;
+  position: relative;
+}
+.home-heads{
+  background-color: #1f1f20;
+
+}
+.banner-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
   
-  .banner-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff8f0;
+  max-width: 700px;
+  padding: 2rem;
+  background: rgba(58, 47, 29, 0.85); 
+  border-radius: 15px;
+  border: 4px dashed #ffdd57;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.banner-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffd166;
+  letter-spacing: 1px;
+}
+
+.banner-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #ffe9b4;
+}
+
+.banner-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #264653;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #1d3557;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .banner-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    font-size: 2rem;
   }
-  
+
   .banner-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    opacity: 0.9;
-  }
-  
-  .banner-button {
-    background-color: white;
-    color: #2563eb;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 999px;
     font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
   }
-  
-  .banner-button:hover {
-    background-color: #2563eb;
-    color: white;
-    transform: scale(1.05);
+
+  .banner-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
   }
-  
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .banner-title {
-      font-size: 2rem;
-    }
-  
-    .banner-subtitle {
-      font-size: 1rem;
-    }
-  
-    .banner-button {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-    }
+}
+
+@media (max-width: 480px) {
+  .banner-content {
+    padding: 1.5rem;
   }
-  
+
+  .banner-title {
+    font-size: 1.7rem;
+  }
+
+  .banner-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+

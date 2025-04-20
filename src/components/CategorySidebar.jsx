@@ -4,27 +4,24 @@ import "../styles/CategorySidebar.css";
 
 const CategorySidebar = ({ categories, selectedCategory, onCategorySelect }) => {
   return (
-    <aside className="category-sidebar">
-      <h3 className="sidebar-title">Categories</h3>
-      <ul className="category-list">
+    <div className="category-sidebar">
+      <ul>
         {categories.map((category) => (
           <li
             key={category}
-            className={`category-item ${
-              selectedCategory === category ? "selected" : ""
-            }`}
+            className={selectedCategory === category || (!selectedCategory && category === "All Product") ? "active" : ""}
             onClick={() => onCategorySelect(category)}
           >
             {category}
           </li>
         ))}
       </ul>
-    </aside>
+    </div>
   );
 };
 
 CategorySidebar.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  categories: PropTypes.array.isRequired,
   selectedCategory: PropTypes.string,
   onCategorySelect: PropTypes.func.isRequired,
 };

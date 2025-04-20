@@ -1,25 +1,21 @@
 .wishlist-page {
-  padding: 2rem 1rem;
-  max-width: 1000px;
-  margin: auto;
+  padding: 2rem;
+  background-color: #f5f5f5;
 }
 
 .wishlist-title {
-  font-size: 2rem;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #047857;
-}
-
-.empty-message {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #6b7280;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .wishlist-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.empty-message {
+  font-size: 18px;
+  color: #666;
 }
