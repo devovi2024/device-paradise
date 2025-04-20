@@ -11,3 +11,24 @@ const CartButton = ({ isInCart, onAdd }) => {
 
 export default CartButton;
 
+
+
+// import React from "react";
+// import { toast } from "react-toastify";
+
+// const CartButton = ({ isInCart, onAdd }) => {
+//   const handleAddToCart = () => {
+//     if (!isInCart) {
+//       toast.success("🛒 Item added to cart!");
+//       onAdd(); 
+//     }
+//   };
+
+//   return (
+//     <button className="cart-btn" onClick={handleAddToCart} disabled={isInCart}>
+//       {isInCart ? "✅ Added to Cart" : "🛒 Add to Cart"}
+//     </button>
+//   );
+// };
+
+// export default CartButton;
