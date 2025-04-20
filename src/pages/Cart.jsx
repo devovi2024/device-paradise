@@ -1,5 +1,9 @@
+
+
+
+
 import React, { useEffect, useState } from "react";
-import { toast } from 'react-toastify'; // Importing toast
+import { toast } from "react-toastify";
 import CartItem from "../components/CartItem";
 import gadgetsData from "../data/gadgets.json";
 import "../styles/Cart.css";
@@ -16,28 +20,44 @@ const Cart = () => {
     setCartItems(items);
   }, []);
 
-  // Delete item from cart
-  const handleDeleteItem = (productId) => {
-    // 1. Remove from state
-    const updatedCart = cartItems.filter(
-      (item) => item.product_id !== productId
-    );
-    setCartItems(updatedCart);
-
-    // 2. Remove from localStorage
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const newCart = savedCart.filter((id) => id !== productId);
-    localStorage.setItem("cart", JSON.stringify(newCart));
-
-    // Show toast when item is deleted
-    toast.success('Item removed from Cart!');
-  };
-
   // Calculate total price
   const calculateTotalPrice = () => {
     return cartItems
       .reduce((total, item) => total + item.price, 0)
       .toFixed(2);
+  };
+
+  // Handle adding an item to the cart
+  const handleAddItemToCart = (productId) => {
+    const newItem = gadgetsData.find((item) => item.product_id === productId);
+    const totalPrice = parseFloat(calculateTotalPrice());
+
+    // Check if adding the new item exceeds the $1000 limit
+    if (totalPrice + newItem.price > 1000) {
+      toast.error("Cannot add item. Cart total exceeds $1000!");
+      return;
+    }
+
+    // Add item to state and localStorage
+    setCartItems((prev) => {
+      const updatedCart = [...prev, newItem];
+      localStorage.setItem("cart", JSON.stringify(updatedCart.map(item => item.product_id)));
+      return updatedCart;
+    });
+
+    toast.success(`${newItem.name} added to the cart!`);
+  };
+
+  // Handle removing an item from the cart
+  const handleDeleteItem = (productId) => {
+    const updatedCart = cartItems.filter((item) => item.product_id !== productId);
+    setCartItems(updatedCart);
+
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const newCart = savedCart.filter((id) => id !== productId);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
+    toast.info("Item removed from cart!");
   };
 
   return (
