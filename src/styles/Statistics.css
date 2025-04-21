@@ -1,0 +1,60 @@
+/* Global Styles for Statistics */
+.statistics-container {
+    font-family: sans-serif;
+    padding: 2rem;
+    background: url('https://www.transparenttextures.com/patterns/african-pattern.png') repeat;
+    background-blend-mode: lighten;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .statistics-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    margin-bottom: 1.5rem;
+  }
+  
+  .statistics-chart {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .statistics-chart:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Tooltip custom styles */
+  .recharts-tooltip-wrapper {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+  }
+  
+  .recharts-tooltip-item {
+    color: white;
+  }
+  
+  /* Axis styling */
+  .recharts-cartesian-axis-line {
+    stroke: #888;
+  }
+  
+  .recharts-cartesian-axis-tick {
+    font-size: 0.9rem;
+    color: black;
+  }
+  
+  /* Legend styling */
+  .recharts-legend-item-text {
+    font-size: 1rem;
+    color: black;
+  }
+  

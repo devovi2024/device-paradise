@@ -1,18 +1,30 @@
+body {
+  background: url('https://www.transparenttextures.com/patterns/african-pattern.png') repeat;
+  background-blend-mode: lighten;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Product Details Container */
 .product-details-container {
   font-family: sans-serif;
   padding: 1.5rem;
-  background-color: #f9f9f9;
-  max-width: 1200px;
+  background-color: #a97c7c;
+
   margin: auto;
+  /* margin-top: -10vh; */
+  background: url('https://www.transparenttextures.com/patterns/african-pattern.png') repeat;
+  background-blend-mode: lighten;
 }
 
+/* Product Header */
 .product-header {
   text-align: center;
-  background: #9c27b0;
+  background: #b041c4;
   color: white;
   padding: 2rem 1rem;
   border-radius: 10px;
   margin-bottom: 2rem;
+  height: 40vh;
 }
 
 .product-header h1 {
@@ -27,16 +39,26 @@
 
 /* Product Card */
 .product-card {
+  max-width: 1200px;
+
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  background: white;
+  background: rgb(242, 241, 241);
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   gap: 2rem;
   flex-wrap: wrap;
+  transition: transform 0.3s ease;
+  margin-top: -29vh;
 }
 
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+/* Product Image */
 .product-image {
   flex: 1 1 300px;
   display: flex;
@@ -53,6 +75,7 @@
   border-radius: 10px;
 }
 
+/* Product Info */
 .product-info {
   flex: 2 1 400px;
   display: flex;
@@ -86,6 +109,7 @@
   margin: 0;
 }
 
+/* Product Rating */
 .product-rating {
   font-weight: bold;
 }
@@ -103,6 +127,7 @@
   font-size: 0.9rem;
 }
 
+/* Product Buttons */
 .product-buttons {
   display: flex;
   align-items: center;
@@ -140,7 +165,7 @@
   background-color: #eee;
 }
 
-/* ✅ Media Queries for Responsive Design */
+/* Media Queries for Responsive Design */
 @media (max-width: 992px) {
   .product-card {
     flex-direction: column;

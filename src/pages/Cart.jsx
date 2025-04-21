@@ -5,13 +5,10 @@ import PaymentModal from "../components/PaymentModal";
 import gadgetsData from "../data/gadgets.json";
 import "../styles/Cart.css";
 
-
-
-
-
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -21,24 +18,6 @@ const Cart = () => {
 
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
-  };
-
-  const handleAddItemToCart = (productId) => {
-    const newItem = gadgetsData.find((item) => item.product_id === productId);
-    const totalPrice = parseFloat(calculateTotalPrice());
-
-    if (totalPrice + newItem.price > 1000) {
-      toast.error("Cannot add item. Cart total exceeds $1000!");
-      return;
-    }
-
-    setCartItems((prev) => {
-      const updatedCart = [...prev, newItem];
-      localStorage.setItem("cart", JSON.stringify(updatedCart.map((item) => item.product_id)));
-      return updatedCart;
-    });
-
-    toast.success(`${newItem.name} added to the cart!`);
   };
 
   const handleDeleteItem = (productId) => {
@@ -52,19 +31,27 @@ const Cart = () => {
     toast.info("Item removed from cart!");
   };
 
-  const sortByPrice = () => {
-    const sorted = [...cartItems].sort((a, b) => a.price - b.price);
-    setCartItems(sorted);
-  };
-
-  const sortByPurchase = () => {
-    const sorted = [...cartItems].sort((a, b) => b.purchase_count - a.purchase_count);
-    setCartItems(sorted);
+  const handleSort = (e) => {
+    const order = e.target.value;
+    setSortOrder(order);
+    const sortedItems = [...cartItems].sort((a, b) => {
+      return order === "asc" ? a.price - b.price : b.price - a.price;
+    });
+    setCartItems(sortedItems);
   };
 
   return (
     <div className="cart-page">
       <h2 className="cart-title">My Cart🛒</h2>
+
+      {/* Sort Dropdown */}
+      <div className="sort-dropdown">
+        <label htmlFor="sort" className="sort-label">Sort by Price:</label>
+        <select id="sort" value={sortOrder} onChange={handleSort} className="sort-select">
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
+      </div>
 
       {cartItems.length === 0 ? (
         <p className="empty-message">🛍️ No items in cart.</p>
@@ -89,8 +76,6 @@ const Cart = () => {
         <PaymentModal
           total={calculateTotalPrice()}
           onClose={() => setShowModal(false)}
-          onSortPrice={sortByPrice}
-          onSortPurchase={sortByPurchase}
         />
       )}
     </div>

@@ -1,20 +1,33 @@
-/* Home.css */
+body {
+  background: url('https://www.transparenttextures.com/patterns/african-pattern.png') repeat;
+  background-blend-mode: lighten;
+  font-family: 'Arial', sans-serif;
+}
 
-
+/* Banner Title */
 .banner-title {
   text-align: center;
   font-size: 1.8rem;
   margin-top: 20px;
   font-weight: bold;
-  color: #333;
+  color: #333; /* Black text */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Home Page Layout */
 .home-page {
   display: flex;
   width: 100%;
   max-width: 1200px;
   margin-top: 20px;
   gap: 20px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.home-page:hover {
+  transform: scale(1.02);
 }
 
 /* Sidebar */
@@ -23,15 +36,29 @@
   min-width: 180px;
   max-width: 250px;
   border-right: 1px solid #eee;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Gadget Cards */
 .gadget-cards {
   flex: 3;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gadget-cards:hover {
+  transform: scale(1.02);
 }
 
 /* Tablet: 3 columns */
@@ -53,6 +80,7 @@
     border-right: none;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
+    padding: 10px;
   }
 
   .gadget-cards {

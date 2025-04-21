@@ -2,7 +2,7 @@
   background: linear-gradient(135deg, #1e1e2f 0%, #3b3b5d 100%);
   backdrop-filter: blur(12px);
   padding: 12px 24px;
-  margin-right: -2vh;
+  /* margin-right: -2vh; */
   position: sticky;
   top: 0;
   z-index: 1000;

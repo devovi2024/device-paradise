@@ -1,0 +1,84 @@
+/* Global Footer Styles */
+.footer-wrapper {
+    background: url('https://www.transparenttextures.com/patterns/african-pattern.png') repeat;
+    background-blend-mode: lighten;
+    color: #eee;
+    padding-top: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer-wrapper h3,
+  .footer-wrapper h4 {
+    font-size: 1.5rem;
+    color: black;
+    text-align: left;
+  }
+  
+  .footer-wrapper p {
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+  
+  /* Footer Brand Styles */
+  .footer-wrapper .brand {
+    max-width: 300px;
+  }
+  
+  .footer-wrapper .brandText {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+    color: black;
+  }
+  
+  .footer-wrapper .tagline {
+    font-size: 1rem;
+    color: #aaa;
+  }
+  
+  /* Footer Links Styles */
+  .footer-wrapper .linksWrapper {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  .footer-wrapper .heading {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+  
+  .footer-wrapper .linkList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-wrapper .linkList li a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-wrapper .linkList li a:hover {
+    color: #ff7300;
+    text-decoration: underline;
+  }
+  
+  /* Footer Bottom Bar */
+  .footer-wrapper .bottomBar {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #444;
+    font-size: 0.85rem;
+    color: #aaa;
+    background-color: #1c1c1e;
+  }
+  
+  .footer-wrapper .bottomBar p {
+    color: white;
+  }
+  

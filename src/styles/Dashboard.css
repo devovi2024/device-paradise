@@ -1,29 +1,42 @@
 .dashboard {
+  margin-top: 6px;
+  /* margin: auto; */
+  padding: 16px;
   font-family: "Segoe UI", sans-serif;
-  background-color: #f7f7f7;
+  background: linear-gradient(to bottom right, #1c1b29, #302b63);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #fff;
+  background-image: url('https://www.transparenttextures.com/patterns/african-pattern.png');
+  background-repeat: repeat;
 }
 
 .dashboard-header {
-  background-color: #8e2de2;
+  background: linear-gradient(145deg, #ff6f61, #d7263d);
   color: white;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem 2rem;
   text-align: center;
   width: 100%;
+  border-bottom: 4px solid #f0c929;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .dashboard-header h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .dashboard-header p {
-  font-size: 1rem;
-  max-width: 700px;
+  font-size: 1.1rem;
+  max-width: 800px;
   margin: 0 auto;
+  color: #f3f3f3;
+  opacity: 0.85;
 }
 
 .tab-buttons {
@@ -31,60 +44,70 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .tab-btn {
-  background-color: white;
-  color: #8e2de2;
-  padding: 0.6rem 1.4rem;
+  background-color: #222;
+  color: #f0c929;
+  padding: 0.7rem 1.6rem;
   border-radius: 50px;
-  border: 1px solid #8e2de2;
-  font-weight: bold;
+  border: 2px solid #f0c929;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(240, 201, 41, 0.3);
 }
 
 .tab-btn:hover {
-  background-color: #eee;
+  background-color: #f0c929;
+  color: #1c1b29;
+  transform: scale(1.05);
 }
 
 .tab-btn.active {
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
-  color: white;
+  background: linear-gradient(to right, #f0c929, #ff6f61);
+  color: #1c1b29;
   border: none;
 }
 
 .tab-content {
   width: 100%;
-  max-width: 1200px;
-  padding: 2rem 1rem;
+  max-width: 1300px;
+  padding: 2.5rem 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-top: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .dashboard-header h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .dashboard-header p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0 1rem;
   }
 
   .tab-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
   }
 
   .tab-content {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .dashboard-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .dashboard-header p {
@@ -94,5 +117,10 @@
   .tab-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .tab-btn {
+    width: 90%;
+    text-align: center;
   }
 }

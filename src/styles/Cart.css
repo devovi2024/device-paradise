@@ -1,15 +1,25 @@
 .cart-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f7f7;
+  background: #f5f5f5;
+  background-image: url('https://www.transparenttextures.com/patterns/african-pattern.png');
+  background-repeat: repeat;
+  background-blend-mode: lighten;
+  color: #000000;
+  border-radius: 1.2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .cart-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
+  color: #f0c929;
   margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .cart-container {
@@ -21,65 +31,144 @@
 .cart-item {
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .cart-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(240, 201, 41, 0.2);
+  transform: translateY(-4px);
 }
 
 .cart-item img {
   width: 150px;
   height: 100px;
-  background-color: #ccc;
-  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 10px;
   margin-right: 1.5rem;
+  border: 2px solid #f0c929;
 }
 
 .cart-item h3 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000000;
 }
 
 .cart-item p {
   margin: 0.25rem 0;
-  color: #555;
+  color: #333333;
   font-size: 0.95rem;
 }
 
 .delete-btn {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 1rem;
+  right: 1rem;
   border: none;
   background-color: transparent;
-  color: red;
-  font-size: 1.25rem;
+  color: #ff6f61;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .delete-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
+  color: #f0c929;
 }
 
 .cart-summary {
   margin-top: 2rem;
   text-align: right;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
+  color: #f0c929;
+  border-top: 1px solid #bbb;
+  padding-top: 1rem;
 }
 
 .empty-message {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
   margin-top: 4rem;
-  color: #777;
+  color: #000000;
 }
+
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 2rem 1.5rem;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .cart-item h3 {
+    font-size: 1rem;
+  }
+
+  .cart-summary {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-title {
+    font-size: 1.6rem;
+  }
+
+  .cart-summary {
+    font-size: 1rem;
+  }
+
+  .delete-btn {
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.3rem;
+  }
+}
+.sort-dropdown {
+  margin-bottom: 20px;
+}
+
+.sort-label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.sort-select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.checkout-btn {
+  background-color: #f0c929;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+  background-color: #ff6f61;
+}
+
+

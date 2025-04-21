@@ -6,6 +6,11 @@
   align-items: center;
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.wishlist-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .wishlist-image {
@@ -14,6 +19,13 @@
   background-color: #ccc;
   border-radius: 8px;
   margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+.wishlist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .wishlist-info {
@@ -24,6 +36,12 @@
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.wishlist-info p {
+  font-size: 14px;
+  color: #555;
 }
 
 .wishlist-actions {
@@ -39,10 +57,12 @@
   font-weight: 500;
   cursor: pointer;
   transition: 0.3s ease;
+  text-transform: uppercase;
 }
 
 .wishlist-add-btn:hover {
   background-color: #8d2cb9;
+  transform: scale(1.05);
 }
 
 .wishlist-delete {
@@ -52,4 +72,9 @@
   font-size: 20px;
   color: red;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wishlist-delete:hover {
+  color: darkred;
 }
