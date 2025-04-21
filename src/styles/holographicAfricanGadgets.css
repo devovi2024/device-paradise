@@ -1,86 +1,188 @@
-/* General Styles for the Holographic Gadget Showcase */
+/* Base styling for the container */
 .holographic-container {
+    padding: 40px;
     text-align: center;
-    padding: 3rem;
-    background: #1a1a1a;
+    background: linear-gradient(45deg, #3f87a6, #ebf8e1);
     border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
   }
   
   .holographic-title {
     font-size: 2.5rem;
-    color: #f1c40f;
-    margin-bottom: 2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6);
   }
   
+  /* Gadget gallery styling */
   .gadget-gallery {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
   }
   
   .gadget-item {
-    width: 240px;
-    height: 320px;
     position: relative;
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
+    background: #222;
   }
   
   .gadget-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  }
-  
-  .gadget-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: filter 0.4s ease-in-out, transform 0.5s ease;
-  }
-  
-  .glow {
-    filter: brightness(1.2) blur(2px);
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5);
   }
   
   .gadget-info {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
     padding: 15px;
-    text-align: center;
-    width: 100%;
+    border-radius: 8px;
     opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
+    color: #fff;
+    text-align: left;
+  }
+  
+  .gadget-item:hover .gadget-info {
+    opacity: 1;
   }
   
   .gadget-info.show {
     opacity: 1;
-    transform: translateY(0);
   }
   
   .gadget-name {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
     font-weight: bold;
-    color: #f39c12;
   }
   
   .gadget-description {
-    font-size: 0.9rem;
-    color: #bdc3c7;
-    margin-top: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #dcdcdc;
+  }
+  
+  /* Image styling */
+  .gadget-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    filter: grayscale(100%);
+  }
+  
+  .gadget-image.glow {
+    filter: grayscale(0%) brightness(1.2) saturate(1.5);
+    transform: scale(1.05);
+  }
+  
+  /* Add hover effect for images */
+  .gadget-item:hover .gadget-image {
+    filter: grayscale(0%) brightness(1.1) saturate(1.3);
+  }
+  
+  /* Responsive design for various screen sizes */
+  @media (max-width: 1200px) {
+    .holographic-container {
+      padding: 30px;
+    }
+  
+    .holographic-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .holographic-title {
+      font-size: 1.8rem;
+    }
+  
+    .gadget-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .holographic-title {
+      font-size: 1.6rem;
+    }
+  
+    .gadget-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  
+    .gadget-info {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  
+    .gadget-name {
+      font-size: 1.2rem;
+    }
+  
+    .gadget-description {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .holographic-container {
+      padding: 20px;
+    }
+  
+    .gadget-info {
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 8px;
+    }
+  
+    .gadget-name {
+      font-size: 1rem;
+    }
+  
+    .gadget-description {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .holographic-title {
+      font-size: 1.4rem;
+    }
+  
+    .gadget-item {
+      transition: all 0.4s ease-in-out;
+    }
+  
+    .gadget-info {
+      font-size: 0.8rem;
+    }
+  
+    .gadget-name {
+      font-size: 1rem;
+    }
+  
+    .gadget-description {
+      font-size: 0.7rem;
+    }
   }
   

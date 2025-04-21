@@ -5,6 +5,7 @@ import CategorySidebar from "../components/CategorySidebar";
 import gadgetsData from "../data/gadgets.json";
 import Banner from "../components/Banner";
 import "../styles/Home.css";
+import HolographicAfricanGadgets from "../components/HolographicAfricanGadgets";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -36,35 +37,40 @@ const Home = () => {
   };
 
   return (
-    <div className="home-head">
-      <div className="home-head2">
-      <Banner />
-      </div>
-      <h2 className="banner-title">Explore Our Gadget Collection</h2>
-      <div className="home-page">
-        <CategorySidebar
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onCategorySelect={handleCategorySelect}
-        />
-        <div className="gadget-cards">
-          {filteredGadgets.slice(0, 10).map((product) => (
-            <GadgetCard
-              key={product.product_id}
-              product={product}
-              onClick={() => navigate(`/product/${product.product_id}`)}
-            />
-          ))}
-        </div>
-      </div>
 
 
+    <div>
 
-
-
-
-
+<div className="home-head">
+    <div className="home-head2">
+    <Banner />
     </div>
+    <h2 className="banner-title">Explore Our Gadget Collection</h2>
+    <div className="home-page">
+      <CategorySidebar
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onCategorySelect={handleCategorySelect}
+      />
+      <div className="gadget-cards">
+        {filteredGadgets.slice(0, 10).map((product) => (
+          <GadgetCard
+            key={product.product_id}
+            product={product}
+            onClick={() => navigate(`/product/${product.product_id}`)}
+          />
+        ))}
+      </div>
+    </div>
+    </div>
+
+
+    <div className="holo">
+        <HolographicAfricanGadgets/>
+    </div>
+    </div>
+
+
   );
 };
 
