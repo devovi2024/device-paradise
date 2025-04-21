@@ -3,7 +3,7 @@ const CartItem = ({ product, children }) => {
   return (
     <div className="cart-item">
       <div>
-        <img src={product.image || "https://via.placeholder.com/150"} alt={product.name} />
+        <img src={product.product_image } alt={product.name} />
       </div>
       <div>
         <h3>{product.name}</h3>

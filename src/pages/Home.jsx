@@ -28,7 +28,7 @@ const Home = () => {
     "Phones",
     "Smart Watches",
     "Chargers",
-    "Power Banks",
+    "Accessories",
   ];
 
   const handleCategorySelect = (category) => {

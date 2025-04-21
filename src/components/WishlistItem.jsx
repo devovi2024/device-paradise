@@ -4,7 +4,9 @@ import "../styles/WishlistItem.css";
 const WishlistItem = ({ product, children }) => {
   return (
     <div className="wishlist-card">
-      <div className="wishlist-image" />
+      <div className="wishlist-image">
+
+      </div>
       
       <div className="wishlist-info">
         <h3 className="wishlist-product-name">{product.name}</h3>

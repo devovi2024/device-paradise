@@ -2,6 +2,7 @@
   background: linear-gradient(135deg, #1e1e2f 0%, #3b3b5d 100%);
   backdrop-filter: blur(12px);
   padding: 12px 24px;
+  margin-right: -2vh;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -12,8 +13,6 @@
 
 /* Main container */
 .navbar-container {
-  max-width: 1200px;
-  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
